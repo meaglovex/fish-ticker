@@ -102,29 +102,7 @@ npm run build:win
 dist/
 ```
 
-## 自动发布
 
-仓库已经接入 GitHub Actions 自动发布流程，工作流文件在：
-
-[`/.github/workflows/release.yml`](./.github/workflows/release.yml)
-
-触发方式：
-
-1. 更新 `package.json` 版本号
-2. 提交并推送到 `main`
-3. 打 tag 并推送
-
-```bash
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-之后 GitHub Actions 会自动：
-
-- 构建 macOS Universal DMG
-- 构建 Windows x64 EXE
-- 创建或复用同名 GitHub Release
-- 上传安装包到 Release
 
 ## 签名
 
