@@ -1,6 +1,6 @@
 {
   "name": "hk-fish-ticker",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Transparent macOS ticker for real-time Hong Kong stocks.",
   "main": "main.js",
   "scripts": {
