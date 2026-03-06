@@ -19,6 +19,7 @@ jobs:
       contents: read
     env:
       CSC_IDENTITY_AUTO_DISCOVERY: "false"
+      NPM_CONFIG_CACHE: ${{ github.workspace }}/.npm-cache
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,7 +28,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install dependencies
         run: npm install --include=dev --ignore-scripts --no-audit --no-fund
@@ -49,6 +49,7 @@ jobs:
       contents: read
     env:
       CSC_IDENTITY_AUTO_DISCOVERY: "false"
+      NPM_CONFIG_CACHE: ${{ github.workspace }}/.npm-cache
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,7 +58,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install dependencies
         run: npm install --include=dev --ignore-scripts --no-audit --no-fund
