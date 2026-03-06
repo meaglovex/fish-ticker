@@ -101,22 +101,39 @@ npx electron-builder --win nsis --x64
 dist/
 ```
 
-## 发布说明
+## 自动发布
 
-当前仓库的发布产物建议按下面流程生成：
+仓库已接入 GitHub Actions 自动发布流程：
 
-1. 更新 `package.json` 中的版本号
-2. 重新打包 macOS Universal DMG 和 Windows x64 EXE
-3. 在 GitHub Releases 新建对应版本，例如 `v1.0.0`
-4. 上传以下安装包：
+- 工作流文件：[.github/workflows/release.yml](/Users/yl202103/Documents/Playground/hk-fish-ticker/.github/workflows/release.yml)
+- 触发方式：
+  - 推送 `v*` tag，例如 `v1.0.1`
+  - 在 GitHub Actions 页面手动运行并填写 tag
+- 自动构建产物：
+  - macOS Universal DMG
+  - Windows x64 EXE 安装包
+- 自动行为：
+  - 构建双平台安装包
+  - 创建或复用同名 GitHub Release
+  - 自动上传 `.dmg` 和 `.exe`
 
-- `HK Fish Ticker-<version>.dmg`
-- `HK Fish Ticker Setup <version>.exe`
+推荐发布步骤：
 
-建议：
+1. 更新 `package.json` 版本号
+2. 提交代码并推送到 `main`
+3. 创建并推送 tag
 
-- 发布 tag 与 `package.json` 版本保持一致，例如 `v1.0.0`
-- 对外分发前补齐 macOS Developer ID / notarization 和 Windows 代码签名
+```bash
+git tag v1.0.1
+git push origin v1.0.1
+```
+
+之后到 GitHub Actions 等待 `Release` 工作流完成即可。
+
+注意：
+
+- 当前 workflow 默认走无签名构建，适合内部测试和快速分发。
+- 如果后续需要正式对外发布，建议补齐 macOS Developer ID / notarization 和 Windows 代码签名 secrets。
 
 ## 默认自选
 

@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "electron .",
     "start": "electron .",
-    "build:dmg": "electron-builder --mac dmg"
+    "build:dmg": "electron-builder --mac dmg",
+    "build:mac": "electron-builder --mac dmg --universal",
+    "build:win": "electron-builder --win nsis --x64"
   },
   "keywords": [
     "electron",
