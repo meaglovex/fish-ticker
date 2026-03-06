@@ -1,0 +1,52 @@
+{
+  "name": "hk-fish-ticker",
+  "version": "1.0.0",
+  "description": "Transparent macOS ticker for real-time Hong Kong stocks.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron .",
+    "start": "electron .",
+    "build:dmg": "electron-builder --mac dmg"
+  },
+  "keywords": [
+    "electron",
+    "hongkong-stocks",
+    "transparent-ui"
+  ],
+  "author": "yl202103",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^40.7.0",
+    "electron-builder": "^26.8.1"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.7.2"
+  },
+  "build": {
+    "appId": "ai.playground.hkfishticker",
+    "productName": "HK Fish Ticker",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.finance",
+      "target": [
+        "dmg"
+      ],
+      "artifactName": "${productName}-${version}.${ext}"
+    },
+    "dmg": {
+      "backgroundColor": "#0d1224",
+      "window": {
+        "width": 520,
+        "height": 360
+      }
+    }
+  }
+}

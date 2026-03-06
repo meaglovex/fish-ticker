@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fish Ticker</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="window-shell">
+      <header class="topbar drag-region">
+        <div class="top-left no-drag">
+          <div class="meta-wrap">
+            <p id="marketState">状态：--</p>
+            <p id="indexSummary">指数：--</p>
+            <p class="meta-row">
+              <span id="updateTime">刷新：--</span>
+              <span id="statusText">实时轮询中...</span>
+            </p>
+          </div>
+        </div>
+        <div class="window-actions no-drag">
+          <button id="pinBtn" title="置顶切换">📌</button>
+        </div>
+      </header>
+
+      <section class="input-panel no-drag">
+        <div class="selector-header">
+          <span>选股器</span>
+          <button id="selectorToggleBtn" class="selector-toggle">展开</button>
+        </div>
+        <div id="selectorPanel" class="selector-panel is-collapsed">
+          <div id="marketTabs" class="market-tabs"></div>
+          <label id="symbolLabel" for="symbolInput">自选代码</label>
+          <div class="input-row">
+            <input id="symbolInput" placeholder="" />
+            <button id="applyBtn">应用</button>
+          </div>
+          <div class="group-row">
+            <select id="groupSelect" title="切换分组"></select>
+            <input id="groupNameInput" placeholder="输入新分组名后点保存" />
+            <button id="saveGroupBtn">保存组</button>
+            <button id="deleteGroupBtn">删组</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="quoteList" class="quote-list no-drag"></section>
+
+      <footer class="footer no-drag">
+        <span class="source-wrap">
+          <span id="sourceText">数据源：自动</span>
+        </span>
+        <span class="opacity-wrap">
+          透明度：
+          <input id="opacityRange" type="range" min="3" max="100" step="0.1" value="52" />
+          <span id="opacityValue">52%</span>
+        </span>
+      </footer>
+    </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
